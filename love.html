@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiss Effect</title>
+  <style>
+    /* Hide image initially */
+    .kiss-image {
+      display: none;
+      width: 1000px;
+      border-radius: 12px;
+    }
+
+    /* Show image when checkbox is checked */
+    #toggle:checked ~ .image-wrapper .kiss-image {
+      display: block;
+    }
+
+    /* Style the “button” */
+    .trigger-btn {
+      padding: 10px 20px;
+      background-color: crimson;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden checkbox to control click -->
+  <input type="checkbox" id="toggle" hidden>
+
+  <!-- Label acts like button -->
+  <label for="toggle" class="trigger-btn">When I see you</label>
+
+  <!-- Image container -->
+  <div class="image-wrapper">
+    <img src="love.jpg.png" alt="A couple kissing" class="kiss-image">
+  </div>
+
+</body>
+</html>
