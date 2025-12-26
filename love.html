@@ -4,41 +4,66 @@
   <meta charset="UTF-8">
   <title>Kiss Effect</title>
   <style>
-    /* Hide image initially */
-    .kiss-image {
+    /* Body setup */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      overflow: hidden; /* prevent scrollbars from fullscreen image */
+    }
+
+    /* Hidden checkbox to control click */
+    #toggle {
       display: none;
-      width: 1000px;
+    }
+
+    /* Button style */
+    .trigger-btn {
+      padding: 15px 30px;
+      background-color: crimson;
+      color: white;
+      border: none;
       border-radius: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 2; /* above the image */
+      position: relative;
+    }
+
+    /* Image styling */
+    .kiss-image {
+      position: fixed;       /* fullscreen */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 0;            /* hidden initially */
+      transition: opacity 1s ease-in-out;
+      z-index: 1;            /* behind button */
     }
 
     /* Show image when checkbox is checked */
     #toggle:checked ~ .image-wrapper .kiss-image {
-      display: block;
-    }
-
-    /* Style the “button” */
-    .trigger-btn {
-      padding: 10px 20px;
-      background-color: crimson;
-      color: white;
-      border-radius: 12px;
-      cursor: pointer;
-      display: inline-block;
-      margin-bottom: 20px;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hidden checkbox to control click -->
-  <input type="checkbox" id="toggle" hidden>
+  <!-- Hidden checkbox -->
+  <input type="checkbox" id="toggle">
 
-  <!-- Label acts like button -->
+  <!-- Button triggers image -->
   <label for="toggle" class="trigger-btn">When I see you</label>
 
   <!-- Image container -->
   <div class="image-wrapper">
-    <img src="love.jpg.png" alt="A couple kissing" class="kiss-image">
+    <img src="love.jpg" alt="A couple kissing" class="kiss-image">
   </div>
 
 </body>
